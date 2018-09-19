@@ -1,19 +1,26 @@
 {
-  "provisioners": [{
+  "provisioners": 
+  [
+    {
     "type": "shell",
+    "execute_command": "sh '{{.Path}}'",
     "scripts": [
-      "scripts/base.sh",
-      "scripts/epel.sh",
-      "scripts/cloud.sh",
-      "scripts/cleanup.sh",
-      "scripts/zerodisk.sh"
-    ],
-    "override": {
-      "centos-7-cloud-kvm": {
-        "execute_command": "sh '{{.Path}}'"
-      }
-	}
-  }],
+      "scripts/base.sh"               ]
+     },
+     {
+      "type": "ansible-local",
+      "playbook_file": "ansible/main.yml"
+	   },
+     {
+      "type": "shell",
+      "execute_command": "sh '{{.Path}}'",
+      "scripts": [
+        "scripts/cloud.sh",
+        "scripts/cleanup.sh",
+        "scripts/zerodisk.sh"
+              ]
+     }
+  ],
   "builders": [{
       "name": "centos-7-cloud-kvm",
       "type": "qemu",
