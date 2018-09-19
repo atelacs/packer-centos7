@@ -1,12 +1,10 @@
-# Packer Image Builder for RHEL Family 7
+# Packer Image Builder for Centos 7
 
 ## Introduction
 
-This repository started as a need to use RedHat, CentOS.To reduce the risk of malicious software on boxes, we open source the build process to ensure the process is open and everybody can find and fix potential bugs. The focus is to:
+The focus is to:
 
 * build production ready images
-* reduce the image to the minimal required set
-* do not expect any specific environment (for patch management etc)
 
 This repository can be used to build 
 
@@ -24,7 +22,6 @@ The Cloud Images are build on the following guidelines:
 * Use XFS as default file system instead of LVM
 * Configuration for network devices
 * Optimized for usage with CloudInit
-* No surprises
 
 ### CentOS 7
 
